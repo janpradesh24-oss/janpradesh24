@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="hi">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>जनप्रदेश 24 | सच की आवाज़... जनता के साथ</title>
+<meta name="description" content="जनप्रदेश 24 - सच की आवाज़... जनता के साथ। देश, प्रदेश और जनता से जुड़ी खबरें।">
+<meta property="og:title" content="जनप्रदेश 24"><meta property="og:description" content="सच की आवाज़... जनता के साथ">
+<meta name="theme-color" content="#b90000">
+<style>
+:root{--red:#c90000;--dark:#171717;--muted:#666;--line:#e8e8e8}*{box-sizing:border-box}
+body{margin:0;background:#f4f4f4;color:#171717;font-family:Arial,"Noto Sans Devanagari",sans-serif}
+header{background:#9f0000;color:#fff;border-bottom:5px solid #222}
+.top{max-width:1120px;margin:auto;padding:10px 16px;display:flex;align-items:center;gap:14px}
+.logo{width:90px;height:72px;object-fit:contain;background:#fff;border-radius:8px}
+.brand{font-size:27px;font-weight:900;line-height:1.2}.tag{font-size:13px;color:#ffe1e1;margin-top:5px}
+nav{background:#191919;color:white}.navin{max-width:1120px;margin:auto;display:flex;gap:20px;padding:12px 16px;flex-wrap:wrap}
+nav a{color:white;text-decoration:none;font-weight:bold;font-size:14px}
+.wrap{max-width:1120px;margin:18px auto;padding:0 14px}
+.breaking{background:#fff;border:1px solid #ddd;display:flex;align-items:center;overflow:hidden}
+.breaking b{background:var(--red);color:#fff;padding:12px;white-space:nowrap}
+.breaking span{padding:10px 14px;font-weight:bold}
+.grid{display:grid;grid-template-columns:2fr 1fr;gap:18px;margin-top:18px}
+.panel{background:#fff;border:1px solid var(--line);border-radius:9px;padding:16px}
+.heading{font-size:21px;border-left:5px solid var(--red);padding-left:10px;margin:0 0 14px}
+.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.news{background:white;border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.news img{width:100%;height:165px;object-fit:cover;background:#eee}
+.newsbody{padding:12px}.category{font-size:12px;color:var(--red);font-weight:bold}
+.news h3{font-size:18px;margin:7px 0;line-height:1.45}.meta{font-size:12px;color:#777}
+.news p{font-size:14px;line-height:1.6;color:#444}
+button,.btn{border:0;border-radius:6px;background:var(--red);color:white;padding:10px 13px;font-weight:bold;cursor:pointer;text-decoration:none;display:inline-block}
+.secondary{background:#222}.light{background:#eee;color:#222}
+.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+input,textarea,select{width:100%;padding:11px;border:1px solid #ccc;border-radius:6px;margin:6px 0 12px;font:inherit}
+textarea{min-height:130px}label{font-size:14px;font-weight:bold}
+#admin{display:none}.hidden{display:none!important}.article{max-width:820px;margin:18px auto;background:white;padding:22px;border-radius:9px}
+.article h1{font-size:28px;line-height:1.4}.article img{width:100%;max-height:420px;object-fit:cover;border-radius:8px}
+.articlecontent{white-space:pre-wrap;line-height:1.9;font-size:17px}
+footer{background:#171717;color:#ddd;text-align:center;padding:24px;margin-top:30px;font-size:14px}
+.small{font-size:12px;color:#777;line-height:1.6}
+@media(max-width:760px){.grid{grid-template-columns:1fr}.cards{grid-template-columns:1fr}.brand{font-size:22px}.logo{width:75px;height:65px}.article{margin:12px;padding:16px}.article h1{font-size:23px}}
+</style>
+</head>
+<body>
+<header><div class="top"><img class="logo" src="logo.png" alt="जनप्रदेश 24 लोगो"><div><div class="brand">जनप्रदेश 24</div><div class="tag">सच की आवाज़... जनता के साथ</div></div></div></header>
+<nav><div class="navin"><a href="./">होम</a><a href="./#latest">ताज़ा खबरें</a><a href="./#about">हमारे बारे में</a><a href="./#admin" onclick="showAdmin()">Admin Login</a></div></nav>
+<div class="wrap" id="home">
+<div class="breaking"><b>ब्रेकिंग न्यूज़</b><span id="ticker">जनप्रदेश 24 पर आपका स्वागत है।</span></div>
+<div id="articleView" class="article hidden"></div>
+<div id="mainView">
+<div class="grid">
+<section class="panel"><h2 class="heading" id="latest">ताज़ा खबरें</h2><div id="newsList" class="cards"><p>खबरें लोड हो रही हैं...</p></div></section>
+<aside class="panel"><h2 class="heading">जनप्रदेश 24</h2><p>सच की आवाज़... जनता के साथ।</p><p class="small">जनता से जुड़े मुद्दे, स्थानीय समाचार और महत्वपूर्ण अपडेट पढ़ें।</p><h3>हमसे जुड़ें</h3><p class="small">अपनी सोशल मीडिया प्रोफाइल के लिंक यहाँ जोड़ें।</p><div id="socialLinks"></div></aside>
+</div>
+</div>
+<section id="admin" class="panel" style="max-width:760px;margin:20px auto">
+<h2 class="heading">Admin Panel</h2>
+<div id="loginBox"><p>खबर प्रकाशित करने के लिए एडमिन लॉगिन करें।</p>
+<label>ईमेल</label><input id="email" type="email" placeholder="Admin email">
+<label>पासवर्ड</label><input id="password" type="password" placeholder="Password">
+<button onclick="login()">Login</button><p id="loginMsg" class="small"></p></div>
+<div id="editor" class="hidden">
+<div class="actions"><b id="loggedAs"></b><button class="secondary" onclick="logout()">Logout</button></div>
+<h3>नई खबर प्रकाशित करें</h3>
+<label>खबर की हेडलाइन</label><input id="title" placeholder="खबर की हेडलाइन लिखें">
+<label>श्रेणी</label><select id="category"><option>मध्य प्रदेश</option><option>गुना</option><option>देश</option><option>राजनीति</option><option>शिक्षा</option><option>अपराध</option><option>खेल</option><option>अन्य</option></select>
+<label>फोटो का URL (वैकल्पिक)</label><input id="imageUrl" placeholder="https://...">
+<label>पूरी खबर</label><textarea id="content" placeholder="खबर यहाँ लिखें..."></textarea>
+<label><input id="published" type="checkbox" checked style="width:auto"> खबर तुरंत प्रकाशित करें</label>
+<div class="actions"><button onclick="publishNews()">खबर प्रकाशित करें</button><button class="light" onclick="clearForm()">फॉर्म साफ करें</button></div>
+<p id="publishMsg" class="small"></p><hr><h3>आपकी प्रकाशित खबरें</h3><div id="adminNews"></div>
+</div>
+</section>
+<section id="about" class="panel" style="margin-top:18px"><h2 class="heading">हमारे बारे में</h2><p>जनप्रदेश 24 — सच की आवाज़... जनता के साथ।</p></section>
+</div>
+<footer>© <span id="year"></span> जनप्रदेश 24 | सच की आवाज़... जनता के साथ</footer>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+// SETUP: Supabase project URL और anon public key यहाँ डालें। Secret/service_role key कभी न डालें।
+const SUPABASE_URL = "https://hzxasyumqgmvjdatorot.supabase.co";
+const SUPABASE_ANON_KEY = "PASTE_YOUR_SUPABASE_ANON_PUBLIC_KEY";
+const SOCIAL_LINKS = [
+  // उदाहरण: {label:"Facebook", url:"https://facebook.com/yourpage"},
+  // {label:"YouTube", url:"https://youtube.com/@yourchannel"}
+];
+let db=null, currentUser=null;
+const $=id=>document.getElementById(id);
+$("year").textContent=new Date().getFullYear();
+function configured(){return SUPABASE_URL.startsWith("https://") && !SUPABASE_URL.includes("PASTE_") && !SUPABASE_ANON_KEY.includes("PASTE_")}
+if(configured() && window.supabase){db=window.supabase.createClient(SUPABASE_URL,SUPABASE_ANON_KEY)}
+function showAdmin(){ $("admin").style.display="block"; setTimeout(()=>$("admin").scrollIntoView({behavior:"smooth"}),50)}
+function safe(s=""){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+function date(s){return new Date(s).toLocaleString("hi-IN",{dateStyle:"medium",timeStyle:"short"})}
+function card(n){let img=n.image_url?`<img src="${safe(n.image_url)}" alt="खबर फोटो" onerror="this.style.display='none'">`:"";
+return `<article class="news">${img}<div class="newsbody"><div class="category">${safe(n.category||"खबर")}</div><h3>${safe(n.title)}</h3><div class="meta">${date(n.created_at)}</div><p>${safe((n.content||"").slice(0,150))}${(n.content||"").length>150?"…":""}</p><div class="actions"><a class="btn" href="?id=${encodeURIComponent(n.id)}">पूरी खबर पढ़ें</a><button class="secondary" onclick="shareNews('${n.id}')">शेयर करें</button></div></div></article>`}
+async function loadNews(){
+ if(!db){$("newsList").innerHTML='<p>वेबसाइट सेटअप पूरा होने के बाद खबरें यहाँ दिखाई देंगी। Admin login के लिए पहले Supabase सेटअप करें।</p>';return}
+ const {data,error}=await db.from("news").select("*").eq("published",true).order("created_at",{ascending:false});
+ if(error){$("newsList").innerHTML="<p>खबरें लोड नहीं हो सकीं। Supabase सेटअप जाँचें।</p>";return}
+ $("newsList").innerHTML=data.length?data.map(card).join(""):"<p>अभी कोई खबर प्रकाशित नहीं हुई है।</p>";
+ if(data[0])$("ticker").textContent=data[0].title;
+}
+async function shareNews(id){const url=location.origin+location.pathname+"?id="+encodeURIComponent(id);try{if(navigator.share)await navigator.share({title:"जनप्रदेश 24",url});else{await navigator.clipboard.writeText(url);alert("खबर का लिंक कॉपी हो गया।")}}catch(e){}}
+async function openArticle(id){
+ if(!db)return;
+ const {data,error}=await db.from("news").select("*").eq("id",id).eq("published",true).maybeSingle();
+ if(error||!data)return;
+ $("mainView").classList.add("hidden");$("articleView").classList.remove("hidden");
+ $("articleView").innerHTML=`<a href="./" class="btn secondary">← सभी खबरें</a><div class="category" style="margin-top:18px">${safe(data.category)}</div><h1>${safe(data.title)}</h1><div class="meta">${date(data.created_at)}</div>${data.image_url?`<img src="${safe(data.image_url)}" alt="खबर फोटो">`:""}<div class="articlecontent">${safe(data.content)}</div><div class="actions"><button onclick="shareNews('${data.id}')">खबर शेयर करें</button><button class="secondary" onclick="copyLink('${data.id}')">Copy Link</button></div>`;
+ document.title=data.title+" | जनप्रदेश 24";
+}
+async function copyLink(id){const url=location.origin+location.pathname+"?id="+encodeURIComponent(id);await navigator.clipboard.writeText(url);alert("लिंक कॉपी हो गया।")}
+async function login(){
+ if(!db){$("loginMsg").textContent="पहले README में दिए गए Supabase सेटअप के अनुसार URL और key जोड़ें।";return}
+ const {data,error}=await db.auth.signInWithPassword({email:$("email").value,password:$("password").value});
+ $("loginMsg").textContent=error?error.message:"लॉगिन सफल।";if(!error){currentUser=data.user;showEditor()}
+}
+async function logout(){if(db)await db.auth.signOut();currentUser=null;$("editor").classList.add("hidden");$("loginBox").classList.remove("hidden")}
+function showEditor(){ $("loginBox").classList.add("hidden");$("editor").classList.remove("hidden");$("loggedAs").textContent=currentUser.email;loadAdminNews()}
+function clearForm(){["title","imageUrl","content"].forEach(x=>$(x).value="");$("published").checked=true}
+async function publishNews(){
+ const title=$("title").value.trim(),content=$("content").value.trim();if(!title||!content){$("publishMsg").textContent="हेडलाइन और पूरी खबर लिखना जरूरी है।";return}
+ const {error}=await db.from("news").insert({title,content,category:$("category").value,image_url:$("imageUrl").value.trim()||null,published:$("published").checked});
+ $("publishMsg").textContent=error?error.message:"खबर सेव हो गई।";if(!error){clearForm();loadNews();loadAdminNews()}
+}
+async function loadAdminNews(){
+ const {data,error}=await db.from("news").select("*").order("created_at",{ascending:false});
+ if(error){$("adminNews").textContent=error.message;return}
+ $("adminNews").innerHTML=data.map(n=>`<div style="border-bottom:1px solid #ddd;padding:10px 0"><b>${safe(n.title)}</b><div class="meta">${n.published?"प्रकाशित":"ड्राफ्ट"} · ${date(n.created_at)}</div><button class="light" onclick="togglePublish('${n.id}',${!n.published})">${n.published?"ड्राफ्ट करें":"प्रकाशित करें"}</button> <button class="secondary" onclick="deleteNews('${n.id}')">डिलीट</button></div>`).join("")||"अभी कोई खबर नहीं।";
+}
+async function togglePublish(id,value){const {error}=await db.from("news").update({published:value}).eq("id",id);if(error)alert(error.message);loadAdminNews();loadNews()}
+async function deleteNews(id){if(!confirm("क्या आप यह खबर डिलीट करना चाहते हैं?"))return;const {error}=await db.from("news").delete().eq("id",id);if(error)alert(error.message);loadAdminNews();loadNews()}
+$("socialLinks").innerHTML=SOCIAL_LINKS.map(x=>`<p><a href="${safe(x.url)}" target="_blank" rel="noopener">${safe(x.label)}</a></p>`).join("")||'<span class="small">सोशल मीडिया लिंक config में जोड़ें।</span>';
+if(db){db.auth.getSession().then(({data})=>{if(data.session){currentUser=data.session.user;showEditor()}})}
+loadNews();
+const articleId=new URLSearchParams(location.search).get("id");if(articleId)openArticle(articleId);
+if(location.hash==="#admin")showAdmin();
+</script>
+</body></html>
